@@ -2,6 +2,7 @@ package com.andersen;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WebController {
@@ -15,4 +16,16 @@ public class WebController {
         return "index";
     }
 
+    /**
+    * Processes requests to the welcome page.
+    * Sends simple message from the controller in response.
+    */
+    @GetMapping("/welcome")
+    public ModelAndView welcome() {
+
+        ModelAndView mv = new ModelAndView("welcome");
+        mv.addObject("message", "Spring 'welcome controller' says: \"Hi!\"");
+
+        return mv;
+    }
 }
